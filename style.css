@@ -1,0 +1,78 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body layout */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+  font-family: 'Ropa Sans', sans-serif;
+}
+
+
+.slider {
+  text-align: center;
+}
+
+/* Navigation buttons */
+.nav {
+  margin-bottom: 15px;
+}
+
+.nav button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #a56300;
+  background: white;
+  color: #a56300;
+  font-size: 18px;
+  
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav button:hover,
+.nav button.active {
+  background: #a56300;
+  color: white;
+}
+
+/* Slides container */
+.slides {
+  width: 400px;
+  height: 350px;
+  position: relative;
+}
+
+/* Individual slides */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
