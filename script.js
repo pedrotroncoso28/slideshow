@@ -1,16 +1,16 @@
-
+// Array of 5 random cat images from Cataas
 const images = [
-  'images/image1.jpg',
-  'images/image2.jpg',
-  'images/image3.jpg',
-  'images/image4.jpg',
-  'images/image5.jpg'
+  'https://cataas.com/cat?random=1',
+  'https://cataas.com/cat?random=2',
+  'https://cataas.com/cat?random=3',
+  'https://cataas.com/cat?random=4',
+  'https://cataas.com/cat?random=5'
 ];
 
 // Select all slides
 const slides = document.querySelectorAll('.slide');
 
-// Fill each slide with an image
+// Fill each slide with a cat image
 slides.forEach((slide, i) => {
   slide.innerHTML = `<img src="${images[i]}" alt="Slide ${i + 1}">`;
 });
