@@ -1,19 +1,21 @@
-// Array of 5 random cat images from Cataas
-const images = [
-  'https://cataas.com/cat?random=1',
-  'https://cataas.com/cat?random=2',
-  'https://cataas.com/cat?random=3',
-  'https://cataas.com/cat?random=4',
-  'https://cataas.com/cat?random=5'
-];
+// A single random dog image from Dog API
+function fetchDogImage() {
+  return fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(data => data.message)
+}
 
-// Select all slides
+
 const slides = document.querySelectorAll('.slide');
 
-// Fill each slide with a cat image
-slides.forEach((slide, i) => {
-  slide.innerHTML = `<img src="${images[i]}" alt="Slide ${i + 1}">`;
-});
+// Fetch 5 dog images
+Promise.all([fetchDogImage(), fetchDogImage(), fetchDogImage(), fetchDogImage(), fetchDogImage()])
+  .then(images => {
+    // Fill each slide with the fetch dog image
+    slides.forEach((slide, i) => {
+      slide.innerHTML = `<img src="${images[i]}" alt="Slide ${i + 1}">`;
+    });
+  });
 
 // Handle navigation button
 const buttons = document.querySelectorAll('.nav button');
@@ -27,3 +29,4 @@ buttons.forEach(button => {
     document.querySelector(`#slide-${slideNumber}`).classList.add('active');
   });
 });
+
